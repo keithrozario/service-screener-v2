@@ -300,5 +300,5 @@ def main():
     print("@ Thank you for using {}, script spent {}s to complete @".format(Config.ADVISOR['TITLE'], scriptTimeSpent))
 
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
