@@ -180,8 +180,8 @@ for acctId, cred in rolesCred.items():
     files_in_directory = os.listdir(directory)
     filtered_files = [file for file in files_in_directory if (file.endswith(".json") or file=='all.csv')]
     for file in filtered_files:
-    	path_to_file = os.path.join(directory, file)
-    	os.remove(path_to_file)
+        path_to_file = os.path.join(directory, file)
+        os.remove(path_to_file)
     
     with open(directory + '/tail.txt', 'w') as fp:
         pass
@@ -251,8 +251,8 @@ for acctId, cred in rolesCred.items():
     files_in_directory = os.listdir(directory)
     filtered_folders = [folder for folder in files_in_directory if folder.endswith("XX")]
     for folder in filtered_folders:
-    	path_to_folder = os.path.join(directory, folder)
-    	shutil.rmtree(path_to_folder)
+        path_to_folder = os.path.join(directory, folder)
+        shutil.rmtree(path_to_folder)
 
     os.chdir(_C.ROOT_DIR)
     filetodel = _C.ROOT_DIR + '/output.zip'
