@@ -19,10 +19,10 @@ from Screener import Screener
 def number_format(num, places=2):
     return locale.format_string("%.*f", (places, num), True)
 
+_cli_options = ArguParser.Load()
+
 def main():
     scriptStartTime = time.time()
-    _cli_options = ArguParser.Load()
-
     debugFlag = _cli_options['debug']
     # feedbackFlag = _cli_options['feedback']
     # testmode = _cli_options['dev']
