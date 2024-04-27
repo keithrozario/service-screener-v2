@@ -1,12 +1,12 @@
 from datetime import date, timedelta, datetime
 from botocore.config import Config as bConfig
-from utils.Config import Config
+from aws_service_screener.utils.Config import Config
+import boto3
 
 class Cloudwatch:
     def __init__(self, region):
-        ssBoto = Config.get('ssBoto')
-        self.cwClient = ssBoto.client('cloudwatch', config=bConfig(region_name=region))
-    
+        self.cwClient = boto3.client('cloudwatch', region_name=region)
+            
     def getClient(self):
         return self.cwClient
 

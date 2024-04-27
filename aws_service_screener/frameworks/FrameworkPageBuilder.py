@@ -1,10 +1,10 @@
 import json
 
-from services.PageBuilder import PageBuilder
-from frameworks.FTR.FTR import FTR
-from frameworks.SSB.SSB import SSB
-from frameworks.WAFS.WAFS import WAFS
-from frameworks.MSR.MSR import MSR
+from aws_service_screener.services.PageBuilder import PageBuilder
+from aws_service_screener.frameworks.FTR.FTR import FTR
+from aws_service_screener.frameworks.SSB.SSB import SSB
+from aws_service_screener.frameworks.WAFS.WAFS import WAFS
+from aws_service_screener.frameworks.MSR.MSR import MSR
 
 class FrameworkPageBuilder(PageBuilder):
     COMPLIANCE_STATUS = ["Not available", "Compliant", "Need Attention"]

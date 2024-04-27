@@ -1,6 +1,6 @@
 import datetime
-from services.PageBuilder import PageBuilder
-from utils.Config import Config, dashboard
+from aws_service_screener.services.PageBuilder import PageBuilder
+from aws_service_screener.utils.Config import Config, dashboard
 
 class DashboardPageBuilder(PageBuilder):
     def init(self):

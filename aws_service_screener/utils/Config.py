@@ -1,7 +1,7 @@
 import traceback
 import os
 import boto3
-import constants as _C
+from .. import constants as _C
 
 class Config:
     AWS_SDK = {
@@ -89,9 +89,8 @@ class Config:
     def setAccountInfo(__AWS_CONFIG):
         print(" -- Acquiring identify info...")
         
-        ssBoto = Config.get('ssBoto', None)
         
-        stsClient = ssBoto.client('sts')
+        stsClient = boto3.client('sts')
         
         resp = stsClient.get_caller_identity()
         stsInfo = {

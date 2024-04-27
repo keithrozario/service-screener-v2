@@ -2,9 +2,9 @@ import os
 import json
 import re
 
-from utils.Config import Config, dashboard
-from utils.Tools import _warn
-import constants as _C
+from aws_service_screener.utils.Config import Config, dashboard
+from aws_service_screener.utils.Tools import _warn
+from aws_service_screener import constants as _C
 
 class Reporter:
     def __init__(self, service):

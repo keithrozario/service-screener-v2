@@ -1,9 +1,9 @@
 import traceback
 import botocore
 
-from utils.Config import Config
-from utils.Tools import _warn, _info
-import constants as _C
+from aws_service_screener.utils.Config import Config
+from aws_service_screener.utils.Tools import _warn, _info
+from aws_service_screener import constants as _C
 
 class Evaluator():
     def __init__(self):

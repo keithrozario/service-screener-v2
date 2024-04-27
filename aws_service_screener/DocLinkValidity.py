@@ -5,7 +5,7 @@ import re
 from urllib.request import Request, urlopen
 import urllib.error
 
-from utils.RuleReader import RuleReader
+from aws_service_screener.utils.RuleReader import RuleReader
 
 SERVICE_FOLDER_PATH = os.getcwd() + '/services'
 

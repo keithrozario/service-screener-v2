@@ -1,8 +1,8 @@
 import os
 import json
 
-from utils.Config import Config
-import constants as _C
+from aws_service_screener.utils.Config import Config
+import aws_service_screener.constants as _C
 
 class Framework():
     def __init__(self, data):

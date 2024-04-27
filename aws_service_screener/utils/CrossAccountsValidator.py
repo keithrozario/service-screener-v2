@@ -5,9 +5,9 @@ import time
 import botocore
 from botocore.config import Config as bConfig
 
-from utils.Config import Config
-from utils.Tools import _warn, _info
-import constants as _C
+from .Config import Config
+from .Tools import _warn, _info
+from .. import constants as _C
 
 class CrossAccountsValidator():
     DEFAULT_ROLENAME = 'ServiceScreenerAutomationRole'

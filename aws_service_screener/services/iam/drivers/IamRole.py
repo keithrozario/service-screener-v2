@@ -1,7 +1,7 @@
 import datetime
 from dateutil.tz import tzlocal
 
-from .IamCommon import IamCommon
+from aws_service_screener.services.iam.drivers.IamCommon import IamCommon
 
 class IamRole(IamCommon):
     MAXSESSIONDURATION = 3600

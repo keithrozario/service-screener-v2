@@ -5,9 +5,9 @@ from dateutil.parser import parse
 
 import boto3
 
-from utils.Config import Config
-from utils.Policy import Policy
-from services.Evaluator import Evaluator
+from aws_service_screener.utils.Config import Config
+from aws_service_screener.utils.Policy import Policy
+from aws_service_screener.services.Evaluator import Evaluator
 
 class IamCommon(Evaluator):
     def getAgeInDay(self, dateTime):

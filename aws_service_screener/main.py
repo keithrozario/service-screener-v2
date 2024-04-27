@@ -7,14 +7,14 @@ from multiprocessing import Pool
 
 import boto3
 
-from utils.Config import Config
-from utils.ArguParser import ArguParser
-from utils.CfnTrail import CfnTrail
-from utils.CrossAccountsValidator import CrossAccountsValidator
-from utils.Tools import _info, _warn
-import constants as _C
-from utils.AwsRegionSelector import AwsRegionSelector
-from Screener import Screener
+from aws_service_screener.utils.Config import Config
+from aws_service_screener.utils.ArguParser import ArguParser
+from aws_service_screener.utils.CfnTrail import CfnTrail
+from aws_service_screener.utils.CrossAccountsValidator import CrossAccountsValidator
+from aws_service_screener.utils.Tools import _info, _warn
+from aws_service_screener import constants as _C
+from aws_service_screener.utils.AwsRegionSelector import AwsRegionSelector
+from aws_service_screener.Screener import Screener
 
 def number_format(num, places=2):
     return locale.format_string("%.*f", (places, num), True)

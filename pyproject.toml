@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aws-service-screener"
-version = "2.0.0"
+version = "2.0.2-alpha3"
 description = "An open source guidance tool for AWS environments"
 authors = ["AWS <aws-gh-ss@amazon.com>"]
 license = "Apache 2.0 license"
@@ -21,3 +21,7 @@ black = "^24.3.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+screener = 'aws_service_screener.main:main'
+aws-screener = 'aws_service_screener.main:main'

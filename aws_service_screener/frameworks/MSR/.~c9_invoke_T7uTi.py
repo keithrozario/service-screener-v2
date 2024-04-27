@@ -1,7 +1,7 @@
 import json
 
 # import constants as _C
-from frameworks.Framework import Framework
+from aws_service_screener.frameworks.Framework import Framework
 
 class PMSR(Framework):
     def __init__(self, data):

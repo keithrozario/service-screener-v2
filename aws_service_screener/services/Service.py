@@ -2,8 +2,8 @@ import time
 
 import boto3
 from botocore.config import Config as bConfig
-from utils.Config import Config
-import constants as _C
+from aws_service_screener.utils.Config import Config
+from aws_service_screener import constants as _C
 
 class Service:
     _AWS_OPTIONS = {}

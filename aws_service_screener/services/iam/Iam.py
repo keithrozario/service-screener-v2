@@ -2,31 +2,31 @@ import botocore
 
 import json
 import time
-
-from utils.Config import Config
-from utils.Tools import _pr
-from services.Service import Service
-from services.iam.drivers.IamRole import IamRole
-from services.iam.drivers.IamGroup import IamGroup
-from services.iam.drivers.IamUser import IamUser
-from services.iam.drivers.IamAccount import IamAccount
+import boto3
+from aws_service_screener.utils.Config import Config
+from aws_service_screener.utils.Tools import _pr
+from aws_service_screener.services.Service import Service
+from aws_service_screener.services.iam.drivers.IamRole import IamRole
+from aws_service_screener.services.iam.drivers.IamGroup import IamGroup
+from aws_service_screener.services.iam.drivers.IamUser import IamUser
+from aws_service_screener.services.iam.drivers.IamAccount import IamAccount
 
 class Iam(Service):
     def __init__(self, region):
         super().__init__(region)
         
-        ssBoto = self.ssBoto
-        self.iamClient = ssBoto.client('iam', config=self.bConfig)
+        self.iamClient = boto3.client('iam', region_name = region)
         
         self.awsClients = {
             'iamClient': self.iamClient,
-            'orgClient': ssBoto.client('organizations'),
-            'accClient': ssBoto.client('account', config=self.bConfig),
-            'sppClient': ssBoto.client('support', config=self.bConfig),
-            'gdClient': ssBoto.client('guardduty', config=self.bConfig),
-            'budgetClient': ssBoto.client('budgets', config=self.bConfig),
-            'curClient': ssBoto.client('cur', config=self.bConfig),
-            'ctClient': ssBoto.client('cloudtrail', config=self.bConfig)
+            'orgClient': boto3.client('organizations'),
+            'accClient': boto3.client('account', region_name = region),
+            'sppClient': boto3.client('support', region_name = region),
+            'gdClient': boto3.client('guardduty', region_name = region),
+            'budgetClient': boto3.client('budgets', region_name = region),
+            'curClient': boto3.client('cur', region_name = region),
+            'ctClient': boto3.client('cloudtrail', region_name = region),
+            'stsClient': boto3.client('sts')
         }
     
     ## Groups has no TAG attribute

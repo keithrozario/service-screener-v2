@@ -5,8 +5,8 @@ import boto3
 import botocore
 from botocore.config import Config as bConfig
 
-from utils.Config import Config
-from utils.Tools import _warn, _info
+from .Config import Config
+from .Tools import _warn, _info
 
 ## Class name decided by Sarika
 class CfnTrail():

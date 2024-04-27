@@ -2,7 +2,7 @@ import boto3
 import re
 
 from pprint import pprint
-from utils.Config import Config
+from .Config import Config
 from typing import Set, Dict, Union
 from netaddr import IPAddress
 

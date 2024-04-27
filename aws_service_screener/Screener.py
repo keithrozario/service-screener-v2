@@ -4,19 +4,18 @@ import os
 import botocore
 
 import time
-from utils.Config import Config
-from services.Cloudwatch import Cloudwatch
-from services.Reporter import Reporter
-from services.PageBuilder import PageBuilder
-from services.dashboard.DashboardPageBuilder import DashboardPageBuilder
-from utils.Tools import _warn, _info
+from aws_service_screener.utils.Config import Config
+from aws_service_screener.services.Cloudwatch import Cloudwatch
+from aws_service_screener.services.Reporter import Reporter
+from aws_service_screener.services.PageBuilder import PageBuilder
+from aws_service_screener.services.dashboard.DashboardPageBuilder import DashboardPageBuilder
+from aws_service_screener.utils.Tools import _warn, _info
 
-from frameworks.FrameworkPageBuilder import FrameworkPageBuilder
-from utils.ExcelBuilder import ExcelBuilder
+from aws_service_screener.frameworks.FrameworkPageBuilder import FrameworkPageBuilder
+from aws_service_screener.utils.ExcelBuilder import ExcelBuilder
 import shutil
-# import zlib
 
-import constants as _C
+from . import constants as _C
 
 class Screener:
     def __init__(self):
@@ -113,8 +112,7 @@ class Screener:
             folder = service + '_'
         
         className = service.title()
-        module = 'services.' + folder + '.' + className
-        
+        module = 'aws_service_screener.services.' + folder + '.' + className
         ServiceClass = getattr(importlib.import_module(module), className)
         return ServiceClass
     
@@ -122,7 +120,7 @@ class Screener:
     def getServicePagebuilderDynamically(service):
         # ServiceClass = getattr(importlib.import_module('services.guardduty.GuarddutypageBuilder'), 'GuarddutypageBuilder')
         # return ServiceClass
-        ServiceClass = getattr(importlib.import_module('services.PageBuilder'), 'PageBuilder')
+        ServiceClass = getattr(importlib.import_module('aws_service_screener.services.PageBuilder'), 'PageBuilder')
         
         folder = service
         if service in Config.KEYWORD_SERVICES:

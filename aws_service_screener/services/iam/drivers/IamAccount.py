@@ -5,9 +5,9 @@ import json
 from datetime import datetime, timedelta
 from dateutil.tz import tzlocal
 
-from utils.Config import Config
-from utils.Tools import _warn
-from .IamCommon import IamCommon
+from aws_service_screener.utils.Config import Config
+from aws_service_screener.utils.Tools import _warn
+from aws_service_screener.services.iam.drivers.IamCommon import IamCommon
  
 class IamAccount(IamCommon):
     PASSWORD_POLICY_MIN_SCORE = 4
@@ -22,6 +22,7 @@ class IamAccount(IamCommon):
         self.gdClient = awsClients['gdClient']
         self.budgetClient = awsClients['budgetClient']
         self.orgClient = awsClients['orgClient']
+        self.stsClient = awsClients['stsClient']
         
         
         self.curClient = awsClients['curClient']
@@ -175,12 +176,13 @@ class IamAccount(IamCommon):
         self.results["enableGuardDuty"] = [-1, ""]
         
     def _checkHasCostBudget(self):
-        stsInfo = Config.get('stsInfo')
-        
-        budgetClient = self.budgetClient
-        
+
+        # added this to overcome an error
+       
+        account_id = self.stsClient.get_caller_identity().get('Account')
+                      
         try:
-            resp = budgetClient.describe_budgets(AccountId=stsInfo['Account'])
+            resp = self.budgetClient.describe_budgets(AccountId=account_id)
         
             if 'Budgets' in resp:
                 return 

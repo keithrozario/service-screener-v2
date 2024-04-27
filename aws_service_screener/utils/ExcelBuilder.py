@@ -1,7 +1,7 @@
 import xlsxwriter
 from datetime import datetime, date
 
-from utils.Config import Config, dashboard
+from .Config import Config, dashboard
 
 class ExcelBuilder:
     # XLSX_FILENAME = 'adminlte/html/workItem.xlsx'

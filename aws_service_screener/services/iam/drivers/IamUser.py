@@ -2,8 +2,8 @@ import boto3
 import datetime
 from dateutil.tz import tzlocal
 
-from .IamCommon import IamCommon
- 
+from aws_service_screener.services.iam.drivers.IamCommon import IamCommon
+
 class IamUser(IamCommon):
     ENUM_NO_INFO = ['not_supported', 'no_information']
     

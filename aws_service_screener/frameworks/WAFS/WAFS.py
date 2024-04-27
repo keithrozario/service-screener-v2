@@ -1,7 +1,7 @@
 import json
 
-import constants as _C
-from frameworks.Framework import Framework
+import aws_service_screener.constants as _C
+from aws_service_screener.frameworks.Framework import Framework
 
 class WAFS(Framework):
     def __init__(self, data):

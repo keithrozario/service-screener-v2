@@ -1,11 +1,10 @@
 import uuid
-import random
 import os
 import json
 
-from utils.Config import Config
-from utils.Tools import _warn
-import constants as _C
+from aws_service_screener.utils.Config import Config
+from aws_service_screener.utils.Tools import _warn
+from aws_service_screener import constants as _C
 
 class PageBuilder:
     serviceIcon = {
